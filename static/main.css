@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar {
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  padding: 0;
+}
+/* --------FOR Logo----- */
+/* .navbar-brand img{
+    
+} */
+
+.navbar-nav li {
+  padding: 0 10px;
+}
+.navbar-nav li a {
+  color: #000;
+  font-weight: 600;
+}
+
+/* ------------------------Banner--------------- */
+.banner {
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+
+  padding-top: 5%;
+}
+
+.prj-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 100px;
+}
+
+.btn {
+  width: 45px;
+  margin: 20px;
+}
+
+.bottom-img {
+  width: 100%;
+}
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  border: 2px solid #000;
+  padding: 12px 34px;
+  font-size: 14px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+/* .hero-btn:hover {
+  border: 2px solid #f4f2ef;
+  background: #85ffbe5b;
+  transition: 1s;
+} */
+
+/* ---------------pose------------ */
+.pose {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 100px;
+  /* background-color: #e6615d54; */
+  background-color: #ffff;
+}
+
+/* ------------------Footer--------------- */
+
+.footer {
+  margin-bottom: 0%;
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+  /* padding: 100px 20px; */
+  padding: 0.1px;
+  background-color: #050505;
+  color: #000;
+}
+
+.footer img {
+  width: 100%;
+  filter: brightness(75);
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+/* .footer-logo{
+    width: 150px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+} */
+.col {
+  text-align: justify;
+  width: 150px;
+}
+.col-md-3 {
+  cursor: pointer;
+}
+
+.col-md-3 ul li {
+  list-style: none;
+  position: relative;
+}
+.col img {
+  display: block;
+  margin: 0 auto;
+}
+.footer p {
+  font-size: 12px;
+  color: #000;
+}
+.footer hr {
+  margin-top: 50px;
+  background: #909296;
+}
+.footer .copyright {
+  text-align: left;
+}

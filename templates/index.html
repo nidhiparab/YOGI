@@ -1,17 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOGI</title>
+    <link rel="stylesheet" href="/static/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/v4-shims.min.css"
+    />
+  </head>
 
-    <div>
-        <h1>Hello</h1>
-        <img src="{{ url_for('video') }}" width="50%"/>
-    </div>
-    
-</body>
+  <body>
+    <section class="header">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <!-- ----------Banner section ------------->
+    <section class="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="prj-title">YOGI - The Yoga Instructor</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit
+              aspernatur molestiae est placeat.
+            </p>
+            <!-- <a href="#"><img src="/static/images/as.jpeg" class="btn">NAme</a>       -->
+            <a href="#" class="hero-btn">Get Started</a>
+          </div>
+          <div class="col-md-6 text-center">
+            <img
+              src="/static/images/meditation yoga sitting exercise illustration.png"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+
+      <img src="/static/images/wave1.png" class="bottom-img" />
+    </section>
+
+
+    <!-- --------------------Pose----------------- -->
+    <section class="pose">
+      <div class="vid">
+        <center>
+          <h1>Start Your Practice Now!</h1>
+          <img src="{{ url_for('video') }}" width="75%" />
+        </center>
+      </div>
+    </section>
+
+
+    <!-- --------------------Footer--------------------- -->
+    <section class="footer">
+      <img src="/static/images/wave2.png" class="footer-img" />
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <!-- <img src="images/logo.png" class="footer-logo" > -->
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit
+              aspernatur molestiae est placeat.
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h4>Group Members</h4>
+            <p>Khusheeta Attarde</p>
+            <p>Sakshi More</p>
+            <p>Nidhi Parab</p>
+            <p>Siddhi Khade</p>
+          </div>
+          <div class="col-md-3">
+            <ul>
+              <h4>Features</h4>
+              <li>
+                <a href=""><p></p></a>
+              </li>
+              <li>
+                <a href=""><p></p></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul>
+              <h4>Other</h4>
+              <li>
+                <a href=""><p></p></a>
+              </li>
+              <li>
+                <a href=""><p></p></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="copyright">Made by Group 13</p>
+      </div>
+    </section>
+  </body>
 </html>
