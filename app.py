@@ -142,7 +142,18 @@ def classifyPose(landmarks, output_image, display=False):
                 if left_knee_angle>90 and left_knee_angle < 120 or right_knee_angle> 90 and right_knee_angle < 120:
  
                     # Specify the label of the pose that is Warrior II pose.
+                    # Bot says the name of the pose and asks if user wants more information
                     label = 'Warrior II Pose' 
+                    with speech_recognition.Microphone() as mic:
+                            speaker.say("You are doing Warrior Pose. Do you want to learn more about this pose?")
+                            speaker.runAndWait()
+                            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                            audio = recognizer.listen(mic)
+                            message = recognizer.recognize_google(audio)
+                    if (message == "yes" or message == "sure"):
+                        speaker.say("Warrior pose strengthens your shoulders, arms, legs, ankles and back. It opens your hips, chest and lungs. It improves focus, balance and stability and Encourages good circulation and respiration.")
+                    else:
+                        speaker.say("Okay, carry on with your pose") 
                         
     #----------------------------------------------------------------------------------------------------------------
     
@@ -154,6 +165,16 @@ def classifyPose(landmarks, output_image, display=False):
  
                 # Specify the label of the pose that is tree pose.
                 label = 'T Pose'
+                 with speech_recognition.Microphone() as mic:
+                            speaker.say("You are doing T Pose. Do you want to learn more about this pose?")
+                            speaker.runAndWait()
+                            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                            audio = recognizer.listen(mic)
+                            message = recognizer.recognize_google(audio)
+                    if (message == "yes" or message == "sure"):
+                        speaker.say("T pose is a beginner-friendly yoga pose which promotes good posture, improves flexibility and develops good balance. It strengthens your legs and core and also helps to maintain good gut health.")
+                    else:
+                        speaker.say("Okay, carry on with your pose")
  
     #----------------------------------------------------------------------------------------------------------------
     
@@ -168,6 +189,16 @@ def classifyPose(landmarks, output_image, display=False):
  
             # Specify the label of the pose that is tree pose.
             label = 'Tree Pose'
+            with speech_recognition.Microphone() as mic:
+                            speaker.say("You are doing Tree Pose. Do you want to learn more about this pose?")
+                            speaker.runAndWait()
+                            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+                            audio = recognizer.listen(mic)
+                            message = recognizer.recognize_google(audio)
+                    if (message == "yes" or message == "sure"):
+                        speaker.say("Tree pose helps to stretch out your lower body. It promotes good posture,and develops good balance. It strengthens your hips and core.")
+                    else:
+                        speaker.say("Okay, carry on with your pose")
                 
     #----------------------------------------------------------------------------------------------------------------
     
