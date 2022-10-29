@@ -8,11 +8,11 @@ import speech_recognition
 import mediapipe as mp
 import matplotlib.pyplot as plt
 import nltk
-import pyttsx3 as tts 
+#pip install playsound
+from playsound import playsound
 import speech_recognition
 
 nltk.download('omw-1.4')
-speaker = tts.init()
 recognizer = speech_recognition.Recognizer()
 
 mp_pose = mp.solutions.pose
@@ -160,18 +160,15 @@ def classifyPose(landmarks, output_image, display=False):
                     # Bot says the name of the pose and asks if user wants more information
                     label = 'Warrior II Pose'
                     with speech_recognition.Microphone() as mic:
-                            speaker.say(
-                                "You are doing Warrior Pose. Do you want to learn more about this pose?")
-                            speaker.runAndWait()
-                            recognizer.adjust_for_ambient_noise(
-                                mic, duration=0.2)
+                            playsound('C:\\Users\\siddh\\Desktop\\YOGI\\wp.mp3')#directory ka naam daalna and save the audio files in the same folder as your
+                            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
                             audio = recognizer.listen(mic)
                             message = recognizer.recognize_google(audio)
-                    if (message == "yes" or message == "sure"):
-                        speaker.say(
-                            "Warrior pose strengthens your shoulders, arms, legs, ankles and back. It opens your hips, chest and lungs. It improves focus, balance and stability and Encourages good circulation and respiration.")
-                    else:
-                        speaker.say("Okay, carry on with your pose")
+                            if (message == "yes" or message == "sure"):
+                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\wpYes.mp3')
+                            else:
+                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\No.mp3')
+                
 
     # ----------------------------------------------------------------------------------------------------------------
 
@@ -184,17 +181,15 @@ def classifyPose(landmarks, output_image, display=False):
                 # Specify the label of the pose that is tree pose.
                 label = 'T Pose'
                 with speech_recognition.Microphone() as mic:
-                            speaker.say(
-                                "You are doing T Pose. Do you want to learn more about this pose?")
-                            speaker.runAndWait()
-                            recognizer.adjust_for_ambient_noise(
-                                mic, duration=0.2)
+                            playsound('C:\\Users\\siddh\\Desktop\\YOGI\\TPose.mp3')#directory ka naam daalna and save the audio files in the same folder as your
+                            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
                             audio = recognizer.listen(mic)
                             message = recognizer.recognize_google(audio)
                             if (message == "yes" or message == "sure"):
-                                speaker.say("T pose is a beginner-friendly yoga pose which promotes good posture, improves flexibility and develops good balance. It strengthens your legs and core and also helps to maintain good gut health.")
+                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\TPYes.mp3')
                             else:
-                                speaker.say("Okay, carry on with your pose")
+                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\No.mp3')
+                
  
     # ----------------------------------------------------------------------------------------------------------------
     
@@ -210,15 +205,15 @@ def classifyPose(landmarks, output_image, display=False):
             # Specify the label of the pose that is tree pose.
             label = 'Tree Pose'
             with speech_recognition.Microphone() as mic:
-                            speaker.say("You are doing Tree Pose. Do you want to learn more about this pose?")
-                            speaker.runAndWait()
+                            playsound('C:\\Users\\siddh\\Desktop\\YOGI\\Tree.mp3')#directory ka naam daalna and save the audio files in the same folder as your
                             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
                             audio = recognizer.listen(mic)
                             message = recognizer.recognize_google(audio)
                             if (message == "yes" or message == "sure"):
-                                speaker.say("Tree pose helps to stretch out your lower body. It promotes good posture,and develops good balance. It strengthens your hips and core.")
+                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\TYes.mp3')
                             else:
-                                speaker.say("Okay, carry on with your pose")
+                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\No.mp3')
+                
                 
     # ----------------------------------------------------------------------------------------------------------------
     
