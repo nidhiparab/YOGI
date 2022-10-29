@@ -29,6 +29,18 @@
     />
   </head>
 
+  <!------------- Chatbot --------------->
+  <script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"14d872a2903a855fd92609cd0aef00c3e","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+</script>
+
   <body>
     <section class="header">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -51,6 +63,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
             </li>
           </ul>
         </div>
@@ -88,7 +106,7 @@
       <div class="vid">
         <center>
           <h1>Start Your Practice Now!</h1>
-          <img src="{{ url_for('video') }}" width="75%" />
+          <img src="{{ url_for('video') }}" width="70%" />
         </center>
       </div>
     </section>
@@ -137,7 +155,7 @@
           </div>
         </div>
         <hr />
-        <p class="copyright">Made by Group 13</p>
+        <p class="copyright">Made by Group 12</p>
       </div>
     </section>
   </body>
