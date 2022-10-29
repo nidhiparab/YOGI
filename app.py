@@ -20,6 +20,11 @@ pose = mp_pose.Pose(static_image_mode=True,
                     min_detection_confidence=0.3, model_complexity=2)
 mp_drawing = mp.solutions.drawing_utils
 
+def AI_speak(com):
+    speaker.say(com)
+    speaker.runAndWait()
+    speaker.stop()
+
 
 def detectPose(image, pose, display=True):
 
@@ -162,7 +167,7 @@ def classifyPose(landmarks, output_image, display=False):
                     with speech_recognition.Microphone() as mic:
                             speaker.say(
                                 "You are doing Warrior Pose. Do you want to learn more about this pose?")
-                            speaker.runAndWait()
+                            # speaker.runAndWait()
                             recognizer.adjust_for_ambient_noise(
                                 mic, duration=0.2)
                             audio = recognizer.listen(mic)
@@ -183,18 +188,25 @@ def classifyPose(landmarks, output_image, display=False):
 
                 # Specify the label of the pose that is tree pose.
                 label = 'T Pose'
-                with speech_recognition.Microphone() as mic:
-                            speaker.say(
-                                "You are doing T Pose. Do you want to learn more about this pose?")
-                            speaker.runAndWait()
-                            recognizer.adjust_for_ambient_noise(
-                                mic, duration=0.2)
-                            audio = recognizer.listen(mic)
-                            message = recognizer.recognize_google(audio)
-                            if (message == "yes" or message == "sure"):
-                                speaker.say("T pose is a beginner-friendly yoga pose which promotes good posture, improves flexibility and develops good balance. It strengthens your legs and core and also helps to maintain good gut health.")
-                            else:
-                                speaker.say("Okay, carry on with your pose")
+                AI_speak("T pose")
+                
+                # speaker.say(
+                #                 "You are doing T Pose. Do you want to learn more about this pose?")
+                # speaker.runAndWait()
+                # with speech_recognition.Microphone() as mic:
+                #             speaker.say(
+                #                 "You are doing T Pose. Do you want to learn more about this pose?")
+                #             speaker.runAndWait()
+                #             speaker.stop()
+                #             recognizer.adjust_for_ambient_noise(
+                #                 mic, duration=0.1)
+                #             audio = recognizer.listen(mic)
+                #             message = recognizer.recognize_google(audio)
+                # if (message == "yes" or message == "sure"):
+                #     speaker.say("T pose is a beginner-friendly yoga pose which promotes good posture, improves flexibility and develops good balance. It strengthens your legs and core and also helps to maintain good gut health.")
+                #     speaker.runAndWait()
+                # else:
+                #     speaker.say("Okay, carry on with your pose")
  
     # ----------------------------------------------------------------------------------------------------------------
     
