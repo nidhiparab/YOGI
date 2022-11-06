@@ -14,9 +14,10 @@
   padding: 0;
 }
 /* --------FOR Logo----- */
-/* .navbar-brand img{
-    
-} */
+.navbar-brand img{
+    height: 40px;
+    padding-left: 20px;
+}
 
 .navbar-nav li {
   padding: 0 10px;
