@@ -232,6 +232,11 @@ def generate_frames():
 @app.route('/')
 def index():
     return render_template('index.html')
+    
+    
+@app.route('/model')
+def model():
+    return render_template('app.html')
 
 @app.route('/video')
 def video():
