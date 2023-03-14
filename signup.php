@@ -3,8 +3,7 @@ $alert=false;
 if ($_SERVER["REQUEST_METHOD"]=="POST"){
 
     include 'partials/_dbconnect.php';
-    $Fname=$_POST["Fname"];
-    $Lname=$_POST["Lname"];
+    $username=$_POST["username"];
     $email=$_POST["Email"];
     $height=$_POST["height"];
     $weight=$_POST["weight"];
@@ -13,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
     $cpassword=$_POST["cpassword"];
     $exists=false;
     if(($password==$cpassword) && $exists==false){
-        $sql="INSERT INTO `users` (`Fname`, `Lname`, `email`, `height`, `weight`,`gender`, `password`) VALUES ( '$Fname', '$Lname', '$email', '$height', '$weight', '$gender', '$password')";
+        $sql="INSERT INTO `users` (`username`, `email`, `height`, `weight`,`gender`, `password`) VALUES ( '$username','$email', '$height', '$weight', '$gender', '$password')";
         $result=mysqli_query($conn,$sql);
         if ($result){
             $alert=true;
@@ -38,22 +37,17 @@ if ($_SERVER["REQUEST_METHOD"]=="POST"){
 <body>
 <?php require 'partials/_nav.php' ?>
 <div class="container">
-    <form action="/LOC 5.0/signup.php" method="post">
+    <form action="/YOGI/signup.php" method="post">
             <h1>Sign Up Form!</h1>
         <div class="form-row">
                 <div class="col-md-4 mb-3">
-                <label for="Fname">First name</label>
-                <input type="text" class="form-control is-valid" id="Fname" placeholder="First name" name="Fname" required>
+                <label for="username">Username</label>
+                <input type="text" class="form-control is-valid" id="username" placeholder="Enter your username " name="username" required>
                 <div class="valid-feedback">
                 </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                <label for="Lname">Last name</label>
-                <input type="text" class="form-control is-valid" id="Lname"  name="Lname" placeholder="Last name" required>
-                <div class="valid-feedback">
                 </div>
-                </div>
-            </div>
+            
             <div class="form-group">
                 <label for="Email">Email address</label>
                 <input type="email" class="form-control" id="Email" name="Email" aria-describedby="emailHelp" placeholder="Enter email" required>
