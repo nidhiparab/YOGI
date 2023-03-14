@@ -1,0 +1,55 @@
+.body-map {
+    padding: 24px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.body-map__container {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.body-map__body {
+    height: 800px
+}
+
+.body-map__model {
+    color: #000
+}
+
+.body-map__muscle {
+    color: #ebebeb;
+    transition: color 25ms ease-in-out
+}
+
+.body-map__muscle:hover {
+    color: #5b79fe;
+    cursor: pointer
+}
+
+@media screen and (max-width: 600px) {
+    .body-map__body {
+        height:650px
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .body-map__body {
+        height:650px
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .body-map__body {
+        height:600px
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .body-map__body {
+        height:500px
+    }
+}
