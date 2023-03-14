@@ -1,7 +1,6 @@
 
 from itertools import tee
 from flask import Flask, render_template, Response
-
 import cv2
 import math
 import cv2
@@ -10,6 +9,7 @@ from time import time
 import speech_recognition
 import mediapipe as mp
 import matplotlib.pyplot as plt
+#pip install nltk
 import nltk
 #pip install playsound
 from playsound import playsound
