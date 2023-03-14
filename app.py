@@ -1,4 +1,7 @@
+
+from itertools import tee
 from flask import Flask, render_template, Response
+
 import cv2
 import math
 import cv2
@@ -276,6 +279,11 @@ def generate_frames():
 @app.route('/')
 def index():
     return render_template('index.html')
+    
+    
+@app.route('/model')
+def model():
+    return render_template('app.html')
 
 @app.route('/video')
 def video():
