@@ -346,7 +346,7 @@ def register():
     elif request.method == 'POST':
         message = 'Please fill out the form!'
     return render_template('register.html', message=message)
-
+# End of Authentication 
 
 
 
