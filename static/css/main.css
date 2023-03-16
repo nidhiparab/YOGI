@@ -2,8 +2,10 @@
 
 #myVideo {
   opacity: 0.5;
+ 
   background-color: blue; /* set the background color to blue */
 }
+
 .navbar{
   top: 2%;
 }
@@ -25,6 +27,7 @@
   top:6%;
   left: 15%; 
   transform: translateY(-50%); 
+  cursor: pointer;
 }
 
 /* app.html css starts */
