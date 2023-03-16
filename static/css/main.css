@@ -1,32 +1,33 @@
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+#myVideo {
+  opacity: 0.5;
+  background-color: blue; /* set the background color to blue */
 }
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
+.navbar{
+  top: 2%;
 }
-.navbar {
-  background-color: #85ffbd;
-  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
-  padding: 0;
+.navbar-brand{
+  position: relative; 
+  display: inline-flex; 
+  align-items: center; 
+  
 }
-/* --------FOR Logo----- */
+
 .navbar-brand img{
-    height: 40px;
-    padding-left: 20px;
+  position: absolute;
+  height: 60px;
+  width: 60px;
+}
+/* User page css starts */
+.logout {
+  position: absolute; 
+  top:6%;
+  left: 15%; 
+  transform: translateY(-50%); 
 }
 
-.navbar-nav li {
-  padding: 0 10px;
-}
-.navbar-nav li a {
-  color: #000;
-  font-weight: 600;
-}
-
+/* app.html css starts */
 /* ------------------------Banner--------------- */
 .banner {
   background-color: #85ffbd;

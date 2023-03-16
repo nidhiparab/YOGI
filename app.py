@@ -362,6 +362,18 @@ def SignUp():
 @app.route('/model')
 def model():
     return render_template('app.html')
+    
+@app.route('/body')
+def body():
+    return render_template('bodymap.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+    
+@app.route('/team')
+def team():
+    return render_template('team.html')
 
 @app.route('/video')
 def video():
