@@ -375,6 +375,10 @@ def about():
 def team():
     return render_template('team.html')
 
+@app.route('/shoulder')
+def shoulders():
+     return render_template('shoulders.html')
+     
 @app.route('/video')
 def video():
     return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
