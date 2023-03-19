@@ -28,6 +28,11 @@ pose = mp_pose.Pose(static_image_mode=True,
                     min_detection_confidence=0.3, model_complexity=2)
 mp_drawing = mp.solutions.drawing_utils
 
+# def AI_speak(com):
+#     speaker.say(com)
+#     speaker.runAndWait()
+#     speaker.stop()
+
 
 def detectPose(image, pose, display=True):
 
@@ -363,9 +368,9 @@ def index():
 def SignUp():
       return render_template('register.html')  
         
-@app.route('/model')
-def model():
-    return render_template('app.html')
+@app.route('/model/<name>')
+def model(name):
+    return render_template('app.html',name=name)
     
 @app.route('/body')
 def body():
@@ -379,13 +384,17 @@ def about():
 def team():
     return render_template('team.html')
 
+@app.route('/shoulder/<name>')
+def shoulders(name):
+     return render_template('shoulders.html',name=name)
+     
 @app.route('/video')
 def video():
     return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/shoulder/<name>')
-def shoulders(name):
-    return render_template('shoulders.html',name=name)
+# @app.route('/shoulder/<name>')
+# def shoulders(name):
+#     return render_template('shoulders.html')
     
 
 # @app.route('/shoulder/<name>')
