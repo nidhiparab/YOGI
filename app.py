@@ -1,4 +1,4 @@
-
+ 
 from itertools import tee
 from flask import Flask, render_template, Response, request, redirect, url_for, session, flash
 import cv2
@@ -168,14 +168,14 @@ def classifyPose(landmarks, output_image, display=False):
                     # Bot says the name of the pose and asks if user wants more information
                     label = 'Warrior II Pose'
                     with speech_recognition.Microphone() as mic:
-                            playsound('C:\\Users\\siddh\\Desktop\\YOGI\\wp.mp3')#directory ka naam daalna and save the audio files in the same folder as your
+                            playsound(r"E:\all_proj\HTML Programming\YOGI\wp.mp3")#directory ka naam daalna and save the audio files in the same folder as your
                             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
                             audio = recognizer.listen(mic)
                             message = recognizer.recognize_google(audio)
                             if (message == "yes" or message == "sure"):
-                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\wpYes.mp3')
+                                playsound(r"E:\all_proj\HTML Programming\YOGI\wpYes.mp3")
                             else:
-                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\No.mp3')
+                                playsound(r"E:\all_proj\HTML Programming\YOGI\No.mp3")
                 
 
     # ----------------------------------------------------------------------------------------------------------------
@@ -189,14 +189,14 @@ def classifyPose(landmarks, output_image, display=False):
                 # Specify the label of the pose that is tree pose.
                 label = 'T Pose'
                 with speech_recognition.Microphone() as mic:
-                            playsound('C:\\Users\\siddh\\Desktop\\YOGI\\TPose.mp3')#directory ka naam daalna and save the audio files in the same folder as your
+                            playsound(r"E:\all_proj\HTML Programming\YOGI\TPose.mp3")#directory ka naam daalna and save the audio files in the same folder as your
                             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
                             audio = recognizer.listen(mic)
                             message = recognizer.recognize_google(audio)
                             if (message == "yes" or message == "sure"):
-                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\TPYes.mp3')
+                                playsound(r"E:\all_proj\HTML Programming\YOGI\TPYes.mp3")
                             else:
-                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\No.mp3')
+                                playsound(r"E:\all_proj\HTML Programming\YOGI\No.mp3")
                 
  
     # ----------------------------------------------------------------------------------------------------------------
@@ -213,14 +213,14 @@ def classifyPose(landmarks, output_image, display=False):
             # Specify the label of the pose that is tree pose.
             label = 'Tree Pose'
             with speech_recognition.Microphone() as mic:
-                            playsound('C:\\Users\\siddh\\Desktop\\YOGI\\Tree.mp3')#directory ka naam daalna and save the audio files in the same folder as your
+                            playsound(r"E:\all_proj\HTML Programming\YOGI\Tree.mp3")#directory ka naam daalna and save the audio files in the same folder as your
                             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
                             audio = recognizer.listen(mic)
                             message = recognizer.recognize_google(audio)
                             if (message == "yes" or message == "sure"):
-                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\TYes.mp3')
+                                playsound(r"E:\all_proj\HTML Programming\YOGI\TYes.mp3")
                             else:
-                                playsound('C:\\Users\\siddh\\Desktop\\YOGI\\No.mp3')
+                                playsound(r"E:\all_proj\HTML Programming\YOGI\No.mp3")
                 
                 
     # ----------------------------------------------------------------------------------------------------------------
@@ -295,11 +295,12 @@ mysql = MySQL(app) #connect flask to mysql
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
-    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'name' in request.form:
+        name=request.form['name']
         email = request.form['email']
         password = request.form['password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE email = % s AND password = % s', (email, password, ))
+        cursor.execute('SELECT * FROM user WHERE name = %s AND email = % s AND password = % s', (name,email, password, ))
         user = cursor.fetchone()
         if user:
             session['loggedin'] = True
@@ -317,6 +318,7 @@ def login():
 def logout():
     session.pop('loggedin', None)
     session.pop('userid', None)
+    session.pop('name',None)
     session.pop('email', None)
     return redirect(url_for('login'))
 
@@ -325,10 +327,12 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     message = ''
-    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form:
+    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form and 'age' in request.form  and 'gender' in request.form  :
         userName = request.form['name']
-        password = request.form['password']
         email = request.form['email']
+        age=request.form['age']
+        gender=request.form['gender']
+        password = request.form['password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM user WHERE email = %s', (email,))
         account = cursor.fetchone()
@@ -339,12 +343,12 @@ def register():
         elif not userName or not password or not email:
             message = 'Please fill out the form!'
         else:
-            cursor.execute('INSERT INTO user VALUES (NULL, %s, %s, %s)', (userName, email, password,))
+            cursor.execute('INSERT INTO user VALUES (NULL, %s, %s,%s,%s,%s)', (userName, email,age,gender, password,))
             mysql.connection.commit()
             flash('You have successfully registered!', 'success')
             return redirect('login')
     elif request.method == 'POST':
-        message = 'Please fill out the form!'
+        message = 'You are not registered.Please fill out the form!'
     return render_template('register.html', message=message)
 # End of Authentication 
 
@@ -378,6 +382,18 @@ def team():
 @app.route('/video')
 def video():
     return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/shoulder/<name>')
+def shoulders(name):
+    return render_template('shoulders.html',name=name)
+    
+
+# @app.route('/shoulder/<name>')
+# def temp(name):
+#     print("name is", name)
+#     # return render_template('shoulders.html')
+#     # return {{'url_for('shoulders')'}} 
+#     return {{ url_for('shoulders') }}
 
 if __name__=="__main__":
     app.run(debug=True)
