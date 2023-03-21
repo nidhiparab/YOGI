@@ -2,7 +2,8 @@
     padding: 24px 0;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    background-color:blue;
 }
 
 .body-map__container {
@@ -13,11 +14,11 @@
 }
 
 .body-map__body {
-    height: 800px
+    height: 800px;
 }
 
 .body-map__model {
-    color: #000
+    color: #000;
 }
 
 .body-map__muscle {
