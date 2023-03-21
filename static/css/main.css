@@ -22,7 +22,7 @@
 }
 
 .active_nav {
-  background-color: #fff;
+  background-color: #ffff;
   box-shadow: 0 0 .5rem rgba(0, 0, 0, .6);
 }
 
@@ -111,6 +111,69 @@
   padding: 100px;
   /* background-color: #e6615d54; */
   background-color: #ffff;
+}
+
+
+.instructions {
+  position: fixed;
+  top: 15%;
+  left: 8%; 
+  transform: translateY(-50%);
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.instructions.open {
+  left: 0;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0;
+  right:-12%; 
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1;
+
+
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right:-8%; 
+  padding: 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1;
+  display: none;
+}
+
+.ins_content {
+  padding: 20px;
+  display: none;
+}
+
+.instructions.open .toggle-button {
+  display: none;
+}
+
+.instructions.open .close-button {
+  display: block;
+}
+
+.instructions.open .ins_content {
+  display: block;
 }
 
 /* ------------------Footer--------------- */
