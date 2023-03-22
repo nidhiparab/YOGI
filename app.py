@@ -250,6 +250,7 @@ def classifyPose(landmarks, output_image, display=False):
         # Return the output image and the classified label.
         return output_image, label
 
+# app = Flask(__name__)
 app = Flask(__name__)
 camera_video = cv2.VideoCapture(0)
 cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
@@ -386,23 +387,20 @@ def team():
 
 @app.route('/shoulder/<name>')
 def shoulders(name):
-     return render_template('shoulders.html',name=name)
+    # with open(name) as f:
+    #     file_contents = f.read()
+    return render_template('shoulders.html',name=name)
      
 @app.route('/video')
 def video():
-    return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-# @app.route('/shoulder/<name>')
-# def shoulders(name):
-#     return render_template('shoulders.html')
-    
 
-# @app.route('/shoulder/<name>')
-# def temp(name):
-#     print("name is", name)
-#     # return render_template('shoulders.html')
-#     # return {{'url_for('shoulders')'}} 
-#     return {{ url_for('shoulders') }}
+# @app.route('/static/text/<path:filename>')
+# def file(filename):
+#     with open(filename) as f:
+#         file_contents = f.read()
+#     return render_template('/shoulders.html', file_contents=file_contents)
 
 if __name__=="__main__":
     app.run(debug=True)
