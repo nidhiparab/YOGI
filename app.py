@@ -333,11 +333,10 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     message = ''
-    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form and 'age' in request.form  and 'gender' in request.form  :
+    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form :
         userName = request.form['name']
         email = request.form['email']
-        age=request.form['age']
-        gender=request.form['gender']
+     
         password = request.form['password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM user WHERE email = %s', (email,))
@@ -349,7 +348,7 @@ def register():
         elif not userName or not password or not email:
             message = 'Please fill out the form!'
         else:
-            cursor.execute('INSERT INTO user VALUES (NULL, %s, %s,%s,%s,%s)', (userName, email,age,gender, password,))
+            cursor.execute('INSERT INTO user VALUES (NULL, %s, %s,%s)', (userName, email, password,))
             mysql.connection.commit()
             flash('You have successfully registered!', 'success')
             return redirect('login')
@@ -384,6 +383,10 @@ def about():
 @app.route('/team')
 def team():
     return render_template('team.html')
+
+@app.route('/user')
+def user():
+    return render_template('user.html')
 
 @app.route('/shoulder/<name>')
 def shoulders(name):
