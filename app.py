@@ -28,6 +28,11 @@ pose = mp_pose.Pose(static_image_mode=True,
                     min_detection_confidence=0.3, model_complexity=2)
 mp_drawing = mp.solutions.drawing_utils
 
+# def AI_speak(com):
+#     speaker.say(com)
+#     speaker.runAndWait()
+#     speaker.stop()
+
 
 def detectPose(image, pose, display=True):
 
