@@ -1,140 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="/static/css/main.css" />
-        <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon">
-        
-        <title>YOGI</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon" />
+    <title>YOGI</title>
+  </head>
 
   <!------------- Chatbot --------------->
   <script type="text/javascript">
-    (function(d, m){
-        var kommunicateSettings = 
-            {"appId":"14d872a2903a855fd92609cd0aef00c3e","popupWidget":true,"automaticChatOpenOnNavigation":true};
-        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-        window.kommunicate = m; m._globals = kommunicateSettings;
+    (function (d, m) {
+      var kommunicateSettings = {
+        appId: "14d872a2903a855fd92609cd0aef00c3e",
+        popupWidget: true,
+        automaticChatOpenOnNavigation: true,
+      };
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+      var h = document.getElementsByTagName("head")[0];
+      h.appendChild(s);
+      window.kommunicate = m;
+      m._globals = kommunicateSettings;
     })(document, window.kommunicate || {});
-</script>
-<!-- Chatbot Ends -->
+  </script>
+  <!-- Chatbot Ends -->
 
-<body >
-    <div  class="hero d-flex flex-column justify-content-center align-items-center">
-        <video autoplay loop muted plays-inline class="back-video">
-        <source src="/static/videos/video.mp4" type="video/mp4">
-        </video>
-        
-       <!-- nav bar starts -->
-    <nav  class="navbar navbar-expand-lg fixed-top bgcolor ">
-        <div class="container ">
-            <a href="/" class="navbar-brand"><img src="/static/images/tabicon.png" alt="yogi"></a>  
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link smoothScroll">Home</a>
-                    </li>
-     
-                    <li class="nav-item">
-                        <a href="/about" class="nav-link smoothScroll">About</a>
-                    </li>
+  <body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+    <!-- nav bar starts -->
+    <div class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a href="/" class="navbar-brand"
+          ><img src="/static/images/tabicon.png" alt="yogi"
+        /></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-lg-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link smoothScroll">Home</a>
+            </li>
 
-                    <li class="nav-item">
-                        <a href="/team" class="nav-link smoothScroll">Our Team</a>
-                    </li>
+            <li class="nav-item">
+              <a href="/about" class="nav-link smoothScroll">About</a>
+            </li>
 
-                    <li class="nav-item">
-                        <a href="/SignUp" class="nav-link smoothScroll">Join Us</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a href="/model" class="nav-link smoothScroll">Model</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a href="/body" class="nav-link smoothScroll">Choose Body part</a>
-                    </li>
-                </ul>
-            </div>
+            <li class="nav-item">
+              <a href="/team" class="nav-link smoothScroll">Our Team</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/SignUp" class="nav-link smoothScroll">Register</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/model" class="nav-link smoothScroll">Model</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="/body" class="nav-link smoothScroll">Choose Body part</a>
+            </li>
+          </ul>
         </div>
-    </nav>
-  <!-- navbar ends -->
-        
-        
-        
-      <div class="content">
-      <h1>YOGI </h1>
-      <a href="#">Explore</a>
-      
-      
       </div>
-      
-</div>
+    </div>
+    <!-- navbar ends -->
 
+    <!-- section 1 -->
 
-
-
-
-<section>
-<div>
-<h1>Our features</h1>
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ad quaerat facilis quia dolore eligendi aliquam reiciendis qui voluptatibus repudiandae obcaecati eaque, sequi optio? Quidem, sed. Fugiat, ipsum? Eligendi, deserunt?</p></div></section>
-
-<section>
-<h2>Information</h2>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa rerum natus repellat quisquam minima dicta aut consequuntur, nostrum vel accusantium corrupti obcaecati, adipisci excepturi deserunt itaque doloribus molestias optio amet.</p>
-</h2>
-</section>
-
-<!-- Footer -->
-
-
-
-    <footer>
-        <div class="footer-content">
-            <h3>YOGI-The Ai Instructor</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo iste corrupti doloribus odio sed!</p>
-            <ul class="socials">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-            </ul>
+    <section
+      class="hero d-flex flex-column justify-content-center align-items-center"
+      id="home"
+    >
+      <div class="bg-overlay">
+        <video autoplay muted loop id="myVideo">
+          <source src="/static/videos/video_yoga.mp4" type="video/mp4" />
+        </video>
+        <div class="container_hero">
+          <h2>YOGI - The AI Instructor</h2>
         </div>
-        <div class="footer-bottom">
-            <p>copyright <span></span></p>
-        </div>
-    </footer>
-
-
-
-
-
-
-
-
-
-
-<!-- script file for navbar color changes -->
-
-<script>
-    const nav = document.querySelector('nav');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY >= 50) {
-            nav.classList.add('active_nav');
-        } else {
-            nav.classList.remove('active_nav');
-        }
-    })
-</script>
-
-</body>
+      </div>
+    </section>
+    <!-- section 1 ends -->
+  </body>
 </html>
