@@ -1,44 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="/static/css/main.css" />
-        <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon">
-        
-        <title>YOGI</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon" />
+    <title>YOGI</title>
+  </head>
 
   <!------------- Chatbot --------------->
   <script type="text/javascript">
-    (function(d, m){
-        var kommunicateSettings = 
-            {"appId":"14d872a2903a855fd92609cd0aef00c3e","popupWidget":true,"automaticChatOpenOnNavigation":true};
-        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-        window.kommunicate = m; m._globals = kommunicateSettings;
+    (function (d, m) {
+      var kommunicateSettings = {
+        appId: "14d872a2903a855fd92609cd0aef00c3e",
+        popupWidget: true,
+        automaticChatOpenOnNavigation: true,
+      };
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+      var h = document.getElementsByTagName("head")[0];
+      h.appendChild(s);
+      window.kommunicate = m;
+      m._globals = kommunicateSettings;
     })(document, window.kommunicate || {});
-</script>
-<!-- Chatbot Ends -->
+  </script>
+  <!-- Chatbot Ends -->
 
-<body >
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50" >
     <div  class="hero d-flex flex-column justify-content-center align-items-center">
         <video autoplay loop muted plays-inline class="back-video">
         <source src="/static/videos/video.mp4" type="video/mp4">
         </video>
         
        <!-- nav bar starts -->
-    <nav  class="navbar navbar-expand-lg fixed-top">
+    <nav  class="navbar navbar-expand-lg fixed-top bgcolor ">
         <div class="container ">
             <a href="/" class="navbar-brand"><img src="/static/images/tabicon.png" alt="yogi"></a>  
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-lg-auto text-black-50">
+                <ul class="navbar-nav ml-lg-auto">
                     <li class="nav-item">
-                        <a href="/" class="nav-link smoothScroll" style="color: black;">Home</a>
+                        <a href="/" class="nav-link smoothScroll">Home</a>
                     </li>
      
                     <li class="nav-item">
@@ -48,14 +63,14 @@
                     <li class="nav-item">
                         <a href="/team" class="nav-link smoothScroll">Our Team</a>
                     </li>
-<!-- 
+
                     <li class="nav-item">
                         <a href="/SignUp" class="nav-link smoothScroll">Join Us</a>
                     </li>
                     
                     <li class="nav-item">
                         <a href="/model" class="nav-link smoothScroll">Model</a>
-                    </li> -->
+                    </li>
                     
                     <li class="nav-item">
                         <a href="/body" class="nav-link smoothScroll">Choose Body part</a>
@@ -70,7 +85,7 @@
         
       <div class="content">
       <h1>YOGI </h1>
-      <a href="/SignUp">Explore</a>
+      <a href="#">Explore</a>
       
       
       </div>
@@ -81,56 +96,10 @@
 
 
 
-
-<!-- features -->
-
-<!-- <section class="steps" id="steps">
-             <div class="steps_bg">
-             <h2>Steps to use of our model</h2>
-             <div class="steps_container container grid">
-             <img src="/static/images/Grey White and Black Cute Cat Desktop Wallpaper.png" id="steps">
-          <div  class="steps_content">
-              <div class="steps_card">
-              <div class="steps_circle">
-              <div class="steps_subcircle">
-              01
-              </div>
-              <img src=" " alt="steps_img">
-              </div>
-              <p class="steps_description">
-              </p>
-              </div>
-              
-              <div class="steps_card steps_card-move">
-                <div class="steps_circle">
-                <div class="steps_subcircle">02
-                </div>
-                <img src=" " alt="steps_img">
-                </div>
-                <p class="steps_description">
-                </p>
-                </div>
-                
-                <div class="steps_card">
-                    <div class="steps_circle">
-                    <div class="steps_subcircle">03
-                    </div>
-                    <img src=" " alt="steps_img">
-                    </div>
-                    <p class="steps_description">
-                    </p>
-                    </div>
-              </div> 
-             </div>
-             </div>   
-</section> -->
-
-
-
-
-
-
-
+<section>
+<div>
+<h1>Our features</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti ad quaerat facilis quia dolore eligendi aliquam reiciendis qui voluptatibus repudiandae obcaecati eaque, sequi optio? Quidem, sed. Fugiat, ipsum? Eligendi, deserunt?</p></div></section>
 
 <section>
 <h2>Information</h2>
@@ -151,11 +120,11 @@
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                 <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                <!-- <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li> -->
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
             </ul>
         </div>
         <div class="footer-bottom">
-            <p>Developed by Group 13<span></span></p>
+            <p>copyright <span></span></p>
         </div>
     </footer>
 
