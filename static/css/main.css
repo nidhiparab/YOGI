@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+body {
+  overflow-x: hidden;
+}
 /* Navbar and video */
 .navbar{
   top: 2%; 
@@ -36,7 +39,6 @@
   align-items: center;
   justify-content: center;
   
-
 }
 
 
@@ -90,8 +92,24 @@
   
 }
 
+/* .steps{
+  background-color: #007bff;
+}
 
+.steps_bg{
+  background-color: #a14343;
+  border-radius: 10px solid;
+}
 
+.steps_container{
+  padding-top: 2rem;
+  
+}
+
+.steps .section_title, .steps_description{
+  color: #fff;
+  
+} */
 /* User page css starts */
 .logout {
   position: absolute; 
