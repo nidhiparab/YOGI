@@ -10,6 +10,11 @@ body {
               200ms ease-in-out box-shadow;
 }
 
+.navbar .nav-link {
+  color: black;
+  font-weight: 500;
+  font-size: large;
+}
 
 .navbar-brand{
   position: relative; 
@@ -25,8 +30,9 @@ body {
 }
 
 .active_nav {
-  background-color: #ffff;
+  background-color: #fff;
   box-shadow: 0 0 .5rem rgba(0, 0, 0, .6);
+  top: 0;
 }
 
 .hero{
