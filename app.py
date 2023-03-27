@@ -1,4 +1,4 @@
-
+ 
 from itertools import tee
 from flask import Flask, render_template, Response, request, redirect, url_for, session, flash
 import cv2
@@ -84,6 +84,7 @@ def detectPose(image, pose, display=True):
 
 
 
+# app = Flask(__name__)
 app = Flask(__name__)
 camera_video = cv2.VideoCapture(0)
 cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
@@ -154,11 +155,12 @@ mysql = MySQL(app) #connect flask to mysql
 @app.route('/login', methods =['GET', 'POST'])
 def login():
     mesage = ''
-    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'name' in request.form:
+        name=request.form['name']
         email = request.form['email']
         password = request.form['password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM user WHERE email = % s AND password = % s', (email, password, ))
+        cursor.execute('SELECT * FROM user WHERE name = %s AND email = % s AND password = % s', (name,email, password, ))
         user = cursor.fetchone()
         if user:
             session['loggedin'] = True
@@ -176,6 +178,7 @@ def login():
 def logout():
     session.pop('loggedin', None)
     session.pop('userid', None)
+    session.pop('name',None)
     session.pop('email', None)
     return redirect(url_for('login'))
 
@@ -184,10 +187,11 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     message = ''
-    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form:
+    if request.method == 'POST' and 'name' in request.form and 'password' in request.form and 'email' in request.form :
         userName = request.form['name']
-        password = request.form['password']
         email = request.form['email']
+     
+        password = request.form['password']
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM user WHERE email = %s', (email,))
         account = cursor.fetchone()
@@ -198,12 +202,12 @@ def register():
         elif not userName or not password or not email:
             message = 'Please fill out the form!'
         else:
-            cursor.execute('INSERT INTO user VALUES (NULL, %s, %s, %s)', (userName, email, password,))
+            cursor.execute('INSERT INTO user VALUES (NULL, %s, %s,%s)', (userName, email, password,))
             mysql.connection.commit()
             flash('You have successfully registered!', 'success')
             return redirect('login')
     elif request.method == 'POST':
-        message = 'Please fill out the form!'
+        message = 'You are not registered.Please fill out the form!'
     return render_template('register.html', message=message)
 # End of Authentication 
 
@@ -218,9 +222,9 @@ def index():
 def SignUp():
       return render_template('register.html')  
         
-@app.route('/model')
-def model():
-    return render_template('app.html')
+@app.route('/model/<name>')
+def model(name):
+    return render_template('app.html',name=name)
     
 @app.route('/body')
 def body():
@@ -234,13 +238,26 @@ def about():
 def team():
     return render_template('team.html')
 
-@app.route('/shoulder')
-def shoulders():
-     return render_template('shoulders.html')
+@app.route('/user')
+def user():
+    return render_template('user.html')
+
+@app.route('/shoulder/<name>')
+def shoulders(name):
+    # with open(name) as f:
+    #     file_contents = f.read()
+    return render_template('shoulders.html',name=name)
      
 @app.route('/video')
 def video():
-    return Response(generate_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+# @app.route('/static/text/<path:filename>')
+# def file(filename):
+#     with open(filename) as f:
+#         file_contents = f.read()
+#     return render_template('/shoulders.html', file_contents=file_contents)
 
 if __name__=="__main__":
     app.run(debug=True)

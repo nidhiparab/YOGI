@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="/static/css/main.css" />
-        <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon">
-        
-        <title>YOGI</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon" />
+    <title>YOGI</title>
+  </head>
 
   <!------------- Chatbot --------------->
   <script type="text/javascript">
-    (function(d, m){
-        var kommunicateSettings = 
-            {"appId":"14d872a2903a855fd92609cd0aef00c3e","popupWidget":true,"automaticChatOpenOnNavigation":true};
-        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-        window.kommunicate = m; m._globals = kommunicateSettings;
+    (function (d, m) {
+      var kommunicateSettings = {
+        appId: "14d872a2903a855fd92609cd0aef00c3e",
+        popupWidget: true,
+        automaticChatOpenOnNavigation: true,
+      };
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+      var h = document.getElementsByTagName("head")[0];
+      h.appendChild(s);
+      window.kommunicate = m;
+      m._globals = kommunicateSettings;
     })(document, window.kommunicate || {});
-</script>
-<!-- Chatbot Ends -->
+  </script>
+  <!-- Chatbot Ends -->
 
-<body >
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50" >
     <div  class="hero d-flex flex-column justify-content-center align-items-center">
         <video autoplay loop muted plays-inline class="back-video">
-        <source src="/static/videos/video.mp4" type="video/mp4">
+        <source src="/static/videos/video_yoga.mp4" type="video/mp4">
         </video>
         
        <!-- nav bar starts -->
@@ -49,16 +64,16 @@
                         <a href="/team" class="nav-link smoothScroll">Our Team</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="/SignUp" class="nav-link smoothScroll">Join Us</a>
                     </li>
                     
                     <li class="nav-item">
                         <a href="/model" class="nav-link smoothScroll">Model</a>
-                    </li>
+                    </li> -->
                     
                     <li class="nav-item">
-                        <a href="/body" class="nav-link smoothScroll">Choose Body part</a>
+                        <a href="/body" class="nav-link smoothScroll">BodyBits</a>
                     </li>
                 </ul>
             </div>
@@ -70,7 +85,7 @@
         
       <div class="content">
       <h1>YOGI </h1>
-      <a href="#">Explore</a>
+      <a href="/SignUp">Explore</a>
       
       
       </div>

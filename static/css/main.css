@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
+body {
+  overflow-x: hidden;
+}
 /* Navbar and video */
 .navbar{
   top: 2%; 
@@ -7,6 +10,11 @@
               200ms ease-in-out box-shadow;
 }
 
+.navbar .nav-link {
+  color: black;
+  font-weight: 500;
+  font-size: large;
+}
 
 .navbar-brand{
   position: relative; 
@@ -24,6 +32,7 @@
 .active_nav {
   background-color: #fff;
   box-shadow: 0 0 .5rem rgba(0, 0, 0, .6);
+  top: 0;
 }
 
 .hero{
@@ -36,7 +45,6 @@
   align-items: center;
   justify-content: center;
   
-
 }
 
 
@@ -90,8 +98,24 @@
   
 }
 
+/* .steps{
+  background-color: #007bff;
+}
 
+.steps_bg{
+  background-color: #a14343;
+  border-radius: 10px solid;
+}
 
+.steps_container{
+  padding-top: 2rem;
+  
+}
+
+.steps .section_title, .steps_description{
+  color: #fff;
+  
+} */
 /* User page css starts */
 .logout {
   position: absolute; 
@@ -111,6 +135,69 @@
   padding: 100px;
   /* background-color: #e6615d54; */
   background-color: #ffff;
+}
+
+
+.instructions {
+  position: fixed;
+  top: 15%;
+  left: 8%; 
+  transform: translateY(-50%);
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.instructions.open {
+  left: 0;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 0;
+  right:-12%; 
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1;
+
+
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right:-8%; 
+  padding: 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1;
+  display: none;
+}
+
+.ins_content {
+  padding: 20px;
+  display: none;
+}
+
+.instructions.open .toggle-button {
+  display: none;
+}
+
+.instructions.open .close-button {
+  display: block;
+}
+
+.instructions.open .ins_content {
+  display: block;
 }
 
 /* ------------------Footer--------------- */
