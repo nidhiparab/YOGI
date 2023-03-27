@@ -154,7 +154,7 @@ mysql = MySQL(app) #connect flask to mysql
 # Login page
 @app.route('/login', methods =['GET', 'POST'])
 def login():
-    mesage = ''
+    message = ''
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form and 'name' in request.form:
         name=request.form['name']
         email = request.form['email']
@@ -167,11 +167,11 @@ def login():
             session['userid'] = user['userid']
             session['name'] = user['name']
             session['email'] = user['email']
-            mesage = 'Logged in successfully !'
-            return render_template('user.html', mesage = mesage)
+            message = 'Logged in successfully !'
+            return render_template('user.html', message = message)
         else:
-            mesage = 'Please enter correct email / password !'
-    return render_template('login.html', mesage = mesage)
+            message = 'Please enter correct email / password !'
+    return render_template('login.html', message = message)
   
 # Logout page  
 @app.route('/logout')
@@ -230,6 +230,10 @@ def model(name):
 def body():
     return render_template('bodymap.html')
 
+@app.route('/popup')
+def poopup():
+    return render_template('popup.html')
+    
 @app.route('/about')
 def about():
     return render_template('about.html')
