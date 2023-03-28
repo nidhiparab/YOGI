@@ -11,9 +11,8 @@ import mediapipe as mp
 import matplotlib.pyplot as plt
 #pip install nltk
 import nltk
+import pygame
 #pip install playsound
-from playsound import playsound
-import speech_recognition
 # pip install flask-mysqldb
 from flask_mysqldb import MySQL 
 import MySQLdb.cursors
@@ -126,7 +125,10 @@ def generate_frames():
         
         # Goddess
         cv2.putText(frame, str(int(a[0][0]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
-        
+        if (int(a[0][0]*100) > 95):
+            pygame.mixer.init()
+            sound = pygame.mixer.music.load('voice3.mp3')
+            pygame.mixer.music.play(-1)
         
         
         # cv2.imshow('Pose Classification', frame)
