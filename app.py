@@ -35,7 +35,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 array = [0,0,0,0,0]
-dataset = pd.read_csv('C:/Nidhi/vscode/yoga/nidhi/yoga.csv')
+dataset = pd.read_csv('D:\VS code\YOGI\yoga.csv')
 dataset1=dataset.fillna(0)
 
 print(dataset1)
