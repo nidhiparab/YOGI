@@ -11,7 +11,7 @@ import mediapipe as mp
 import matplotlib.pyplot as plt
 #pip install nltk
 import nltk
-import pygame
+# import pygame
 #pip install playsound
 # pip install flask-mysqldb
 from flask_mysqldb import MySQL 
@@ -37,6 +37,8 @@ mp_pose = mp.solutions.pose
 array = [0,0,0,0,0]
 dataset = pd.read_csv('C:/Nidhi/vscode/yoga/nidhi/yoga.csv')
 dataset1=dataset.fillna(0)
+
+
 
 print(dataset1)
 
@@ -89,7 +91,9 @@ camera_video = cv2.VideoCapture(0)
 cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
 pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,model_complexity=1)
 
-def generate_frames():
+def generate_frames(name):
+
+    print(name)
     while True:
             
         # read the camera frame
@@ -114,7 +118,7 @@ def generate_frames():
         avg_percent = sum(array) / len(array)
         color = (0, 255, 0)
         
-        cv2.putText(frame, str(classifier.predict(input_reshaped)), (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+        
         cv2.putText(frame, "Accuracy", (10, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
         
         # Warrior
@@ -124,11 +128,13 @@ def generate_frames():
         # cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
         
         # Goddess
-        cv2.putText(frame, str(int(a[0][0]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
-        if (int(a[0][0]*100) > 95):
-            pygame.mixer.init()
-            sound = pygame.mixer.music.load('voice3.mp3')
-            pygame.mixer.music.play(-1)
+        if name == "shoulders":
+            cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            cv2.putText(frame, str(int(a[0][0]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        # if (int(a[0][0]*100) > 95):
+        #     pygame.mixer.init()
+        #     sound = pygame.mixer.music.load('voice3.mp3')
+        #     pygame.mixer.music.play(-1)
         
         
         # cv2.imshow('Pose Classification', frame)
@@ -256,7 +262,8 @@ def shoulders(name):
      
 @app.route('/video')
 def video():
-    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    name = request.args.get('param')
+    return Response(generate_frames(name), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 # @app.route('/static/text/<path:filename>')
