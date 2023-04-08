@@ -37,7 +37,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 array = [0,0,0,0,0]
-dataset = pd.read_csv(r"E:\all_proj\HTML Programming\YOGI\yoga.csv")
+dataset = pd.read_csv(r"./yoga.csv")
 dataset1=dataset.fillna(0)
 
 
@@ -96,8 +96,8 @@ pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,
 
 def generate_frames(name):
     body_parts_rln={
-        "tree": ["hamstrings", "calves", "quads", "lowerback", "chest","triceps","biceps"],
-        "warrior": ["abdominals", "lowerback", "forearms", "shoulders", "hamstrings", "calves", "glutes", "chest","traps"],
+        "tree": ["hamstrings", "calves", "quads","chest","triceps","biceps"],
+        "warrior": ["abdominals", "forearms", "shoulders", "hamstrings", "calves", "glutes", "chest","traps"],
         "goddess": ["hamstrings", "quads", "abdominals", "lats", "obliques"],
         "child":["lowerback","traps","glutes","shoulders","triceps","biceps"]
     }
@@ -135,15 +135,21 @@ def generate_frames(name):
         
         #Warrior
         if pose=="warrior":
+            cv2.putText(frame, "warrior", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][2] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             
         #Tree
         if pose=="tree":
+            cv2.putText(frame, "tree", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
         
         # Goddess
         if pose == "goddess":
             cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            
+        if pose == "child":
+            cv2.putText(frame, "child", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             
         # if (int(a[0][0]*100) > 95):
