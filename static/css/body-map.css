@@ -1,7 +1,8 @@
-#wiki-outer-body {
+.wiki-outer-body {
   display: flex;
   justify-content: center;
   /* background-color: #5b79fe; */
+  background-color: #8b694d; 
 }
 
 #wiki-body {
@@ -62,7 +63,13 @@
   }
 }
 
+
+.yvideo {
+  position: relative;
+}
+
 .bb {
+
   width: 100%;
   height: auto;
 }

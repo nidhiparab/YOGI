@@ -48,7 +48,7 @@ body {
 
 .active_nav {
 
-  background-color: #fff;
+  background-color: #e8e2d0;
   box-shadow: 0 0 .5rem rgba(0, 0, 0, .6);
   top: 0;
 }
@@ -115,6 +115,7 @@ body {
   }
   
 }
+
 
 /* Shoulders */
 
@@ -274,7 +275,7 @@ h3 .mw-headline {
 
 .instructions {
   position: fixed;
-  top: 15%;
+  top: 20%;
   left: 8%; 
   transform: translateY(-50%);
   background-color: #fff;
@@ -349,7 +350,6 @@ h3 .mw-headline {
   background-color: #0062cc;
 }
 
-
 /* ------------------Footer--------------- */
 
 footer{
@@ -420,3 +420,4 @@ footer{
   opacity: .4;
   font-weight: 200;
 }
+
