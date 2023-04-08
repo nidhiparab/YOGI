@@ -1,6 +1,7 @@
  
 from itertools import tee
 from flask import Flask, render_template, Response, request, redirect, url_for, session, flash
+# from flask_ngrok import run_with_ngrok
 import cv2
 import math
 import cv2
@@ -25,6 +26,7 @@ import mediapipe as mp
 import matplotlib.pyplot as plt
 import csv
 import os
+import json
 import sys
 from sklearn import svm
 from sklearn.preprocessing import StandardScaler
@@ -85,11 +87,14 @@ def detectPose(image, pose, display=True):
 
 # app = Flask(__name__)
 app = Flask(__name__)
+£run_with_ngrok(app)
+
 camera_video = cv2.VideoCapture(0)
 cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
 pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,model_complexity=1)
 
-def generate_frames(name):
+def generate_frames():
+    # print(name)
     while True:
             
         # read the camera frame
@@ -116,13 +121,13 @@ def generate_frames(name):
         
         cv2.putText(frame, str(classifier.predict(input_reshaped)), (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
         cv2.putText(frame, "Accuracy", (10, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-        
-        if name=='warrior':
-            cv2.putText(frame, str(int(a[0][2]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
-        elif name=='tree':
-            cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
-        elif name=='goddess':
-            cv2.putText(frame, str(int(a[0][0]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        # if name=='warrior':
+        #     cv2.putText(frame, str(int(a[0][2]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        # elif name=='tree':
+        #     cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        # elif name=='goddess':
+        #     cv2.putText(frame, str(int(a[0][0]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        cv2.putText(frame, str(int(a[0][0]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
         if (int(a[0][0]*100) > 95):
             pygame.mixer.init()
             sound = pygame.mixer.music.load('voice3.mp3')
@@ -252,9 +257,20 @@ def shoulders(name):
      
 @app.route('/video')
 def video():
-    param = request.args.get('param')
-    return Response(generate_frames(param), mimetype='multipart/x-mixed-replace; boundary=frame')
+    # global name
+    name = request.args.get('param')
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+
+# @app.route('/webhook',methods=["GET","POST"])
+# def webhook():
+#     data=[
+#         {
+#         "message":"Flask is written in Python"
+#         },
+#     ]
+#     json_string=json.dumps(data)
+#     return json_string
 
 # @app.route('/static/text/<path:filename>')
 # def file(filename):
