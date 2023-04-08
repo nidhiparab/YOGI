@@ -2,7 +2,6 @@
 from itertools import tee
 from flask import Flask, render_template, Response, request, redirect, url_for, session, flash
 import math
-import cv2
 import numpy as np
 from time import time
 import speech_recognition
