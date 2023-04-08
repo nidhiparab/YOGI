@@ -134,19 +134,19 @@ def generate_frames(name):
         cv2.putText(frame, "Accuracy", (10, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
         
         #Warrior
-        if pose=="warrior":
-            cv2.putText(frame, "warrior", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+        if pose=="tree":
+            cv2.putText(frame, "tree", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][2] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             
         #Tree
-        if pose=="tree":
-            cv2.putText(frame, "tree", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        if pose=="warrior":
+            cv2.putText(frame, "warrior", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            cv2.putText(frame, str(int(a[0][3]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
         
         # Goddess
         if pose == "goddess":
             cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            cv2.putText(frame, str(int(a[0][1] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             
         if pose == "child":
             cv2.putText(frame, "child", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
