@@ -37,7 +37,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 array = [0,0,0,0,0]
-dataset = pd.read_csv('D:\VS code\YOGI\yoga.csv')
+dataset = pd.read_csv(r"E:\all_proj\HTML Programming\YOGI\yoga.csv")
 dataset1=dataset.fillna(0)
 
 
@@ -89,7 +89,6 @@ def detectPose(image, pose, display=True):
 
 # app = Flask(__name__)
 app = Flask(__name__)
-£run_with_ngrok(app)
 
 camera_video = cv2.VideoCapture(0)
 cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
