@@ -8,10 +8,74 @@
     <link rel="stylesheet" href="/static/css/body-map.css"> 
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
     <title>YOGI</title>
 </head>
 
-<body>
+    <!------------- Chatbot --------------->
+  <script type="text/javascript">
+    (function (d, m) {
+      var kommunicateSettings = {
+        appId: "35d17e8f169a7ad1594bc112aa3f7e5de",
+        popupWidget: true,
+        automaticChatOpenOnNavigation: true,
+      };
+      var s = document.createElement("script");
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+      var h = document.getElementsByTagName("head")[0];
+      h.appendChild(s);
+      window.kommunicate = m;
+      m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+    /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+  </script>
+  <!-- Chatbot Ends -->
+
+  <body>
+      <!-- nav bar starts -->
+      <nav class="navbar navbar-expand-lg fixed-top bgcolor">
+        <div class="container">
+          <a href="/" class="navbar-brand"
+            ><img src="/static/images/tabicon.png" alt="yogi"
+          /></a>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-lg-auto">
+              <li class="nav-item">
+                <a href="/" class="nav-link smoothScroll">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/about" class="nav-link smoothScroll">About</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/team" class="nav-link smoothScroll">Our Team</a>
+              </li>
+
+              <!-- <li class="nav-item">
+                        <a href="/SignUp" class="nav-link smoothScroll">Join Us</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="/model" class="nav-link smoothScroll">Model</a>
+                    </li> -->
+
+              <li class="nav-item">
+                <a href="/SignUp" class="nav-link smoothScroll">Register</a>
+              </li>
+              <li class="nav-item">
+                <a href="/body" class="nav-link smoothScroll">BodyBits</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- navbar ends -->
  <!-- <h1>Navbar</h1>
     <a href="/model">Model</a><br>
     <a href="/SignUp">Register</a><br>
@@ -104,7 +168,7 @@
                             <path d="M454.007 309.662L454.036 309.519L454.028 309.502L454.04 309.443C456.729 296.531 459.508 283.182 453.627 279.328H453.609C449.07 277.219 444.591 274.51 440.4 270.998C433.569 265.282 426.947 260.141 420.517 255.166L420.163 254.892C410.325 247.256 400.986 240.007 391.902 231.388L391.676 231.649C371.514 269.107 359.228 298.619 351.09 320.263C349.887 323.513 348.763 326.571 347.718 329.472C347.648 329.647 347.596 329.804 347.544 329.978C337.009 362.469 344.485 385.22 371.148 436.079C378.223 449.549 377.63 463.543 377.107 475.88L377.107 475.901C376.515 490.495 376.042 502.153 388.199 507.971H388.217C388.905 508.267 389.567 508.546 390.212 508.86L390.578 509.017C402.89 514.009 420.517 524.683 429.517 537.282C424.115 514.41 420.412 471.994 420.621 459.116C420.626 458.736 420.63 458.345 420.633 457.943C420.64 456.943 420.644 455.872 420.656 454.716C420.708 440.313 420.83 413.494 432.41 395.083C443.781 377.012 451.527 343.501 452.607 338.578C449.301 332.278 451.587 321.294 454.007 309.662Z" fill="currentColor"/>
                             <path d="M274.079 475.804C273.574 463.489 273.003 449.532 280.042 436.096L280.051 436.113C306.714 385.254 314.207 362.495 303.655 330.013C303.603 329.838 303.551 329.682 303.481 329.507C302.435 326.606 301.311 323.547 300.109 320.297C291.971 298.671 279.703 269.16 259.558 231.719L259.296 231.423C250.185 240.076 240.808 247.348 230.918 255.018L230.682 255.201C224.269 260.168 217.63 265.317 210.816 271.033C206.608 274.562 202.094 277.298 197.537 279.398C197.52 279.398 197.502 279.415 197.485 279.432C191.734 283.362 194.496 296.657 197.171 309.535L197.171 309.537C199.611 321.212 201.92 332.269 198.6 338.595C199.698 343.509 207.444 377.02 218.815 395.1C230.361 413.462 230.49 440.205 230.56 454.639L230.56 454.733C230.56 456.354 230.578 457.809 230.595 459.134C230.787 472.012 227.084 514.428 221.681 537.3C230.804 524.552 248.745 513.765 261.048 508.842C261.089 508.822 261.13 508.801 261.175 508.784C261.206 508.773 261.238 508.762 261.274 508.755C261.806 508.494 262.363 508.25 262.938 508.023C262.938 508.023 262.944 508.018 262.951 508.013C262.958 508.009 262.965 508.006 262.973 508.006C275.18 502.168 274.694 490.536 274.085 475.962L274.079 475.804Z" fill="currentColor"/>
                         </g></a>
-                        <a xlink:href='/shoulder/traps_middle'>
+                        <a xlink:href='/shoulder/traps'>
                         <g id="traps_middle" class="body-map__muscle">
                             <path d="M384.871 237.078C366.843 271.303 355.568 298.575 347.918 318.929C347.901 318.947 347.901 318.982 347.883 318.999C346.646 322.04 345.557 324.994 344.599 327.878V327.895C343.048 332.191 341.662 336.086 340.425 339.597C333.96 357.921 330.727 367.113 325.595 367.113C320.463 367.113 317.23 357.921 310.765 339.597C309.476 335.946 308.055 331.895 306.435 327.434C306.435 327.416 306.417 327.381 306.4 327.364C305.581 324.915 304.666 322.389 303.638 319.818C303.586 319.696 303.533 319.574 303.481 319.452C303.429 319.295 303.376 319.156 303.307 318.999C295.674 298.645 284.382 271.355 266.354 237.095C268.802 238.263 271.312 238.716 274.109 238.716C277.69 238.716 281.742 237.984 286.656 237.095C295.395 235.509 307.393 233.34 325.586 233.34C343.78 233.34 355.778 235.509 364.534 237.095C369.457 237.984 373.483 238.716 377.064 238.716C379.861 238.716 382.396 238.263 384.854 237.078H384.871Z" fill="currentColor"/>
                         </g></a>

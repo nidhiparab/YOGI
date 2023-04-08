@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
     <link rel="stylesheet" href="/static/css/main.css" />
     <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon" />
     <script
@@ -12,14 +12,14 @@
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
     ></script>
-     <title>YOGI</title>
+    <title>YOGI</title>
   </head>
 
   <!------------- Chatbot --------------->
   <script type="text/javascript">
     (function (d, m) {
       var kommunicateSettings = {
-        appId: "14d872a2903a855fd92609cd0aef00c3e",
+        appId: "35d17e8f169a7ad1594bc112aa3f7e5de",
         popupWidget: true,
         automaticChatOpenOnNavigation: true,
       };
@@ -32,6 +32,7 @@
       window.kommunicate = m;
       m._globals = kommunicateSettings;
     })(document, window.kommunicate || {});
+    /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
   </script>
 
   <body>
@@ -93,43 +94,35 @@
 
       <img src="/static/images/wave1.png" class="bottom-img" />
     </section> -->
-    
-    
-    
-    
-
-    
 
     <!-- --------------------Pose----------------- -->
     <div class="instructions">
       <button class="toggle-button">Open Instructions</button>
       <button class="close-button">Close Instructions</button>
       <div class="ins_content">
-        1. Make sure your entire body is visible.
-        2. Make sure your entire body is visible.
-        2. Make sure your entire body is visible.
-        2. Make sure your entire body is visible.
+        1. Make sure your entire body is visible. 2. Make sure your entire body
+        is visible. 2. Make sure your entire body is visible. 2. Make sure your
+        entire body is visible.
       </div>
     </div>
-        <!-- script file for instructions -->
-        <script>
-          const instructions = document.querySelector('.instructions');
-      const toggleButton = document.querySelector('.toggle-button');
+    <!-- script file for instructions -->
+    <script>
+      const instructions = document.querySelector(".instructions");
+      const toggleButton = document.querySelector(".toggle-button");
       const closeButton = document.querySelector(".close-button");
-      toggleButton.addEventListener('click', () => {
-        instructions.classList.toggle('open');
-      });
-      
-      closeButton.addEventListener('click', () => {
+      toggleButton.addEventListener("click", () => {
         instructions.classList.toggle("open");
       });
-      
-          </script>
-          <h1 class="h1">
-            <span class="mw-headline">
-            <a>Yoga for {{name}}</a>
-            </span>
-            </h1>
+
+      closeButton.addEventListener("click", () => {
+        instructions.classList.toggle("open");
+      });
+    </script>
+    <h1 class="h1">
+      <span class="mw-headline">
+        <a>Yoga for {{name}}</a>
+      </span>
+    </h1>
     <section class="pose" id="pose">
       <div class="vid">
         <center>

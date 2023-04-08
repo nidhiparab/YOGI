@@ -2,17 +2,17 @@ body {
   background-image: url("/static/images/yoga.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 40%;
+  background-position: 20% 40%;
 }
 
-.container {
+.container-form {
   background-image: url("/static/images/yoga.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: 40%;
   background: rgba(1, 1, 1, 0.5);
-  margin-top: 20px;
-  position: center;
+  margin-top: 20vh;
+  margin-left: 35vw;
   color: aliceblue;
 }
 form {
