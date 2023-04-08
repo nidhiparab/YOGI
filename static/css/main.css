@@ -44,7 +44,7 @@ body {
 }
 
 .active_nav {
-  background-color: #fff;
+  background-color: #e8e2d0;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
   top: 0;
 }
