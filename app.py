@@ -1,6 +1,7 @@
  
 from itertools import tee
 from flask import Flask, render_template, Response, request, redirect, url_for, session, flash
+# from flask_ngrok import run_with_ngrok
 import cv2
 import math
 import cv2
@@ -25,6 +26,7 @@ import mediapipe as mp
 import matplotlib.pyplot as plt
 import csv
 import os
+import json
 import sys
 from sklearn import svm
 from sklearn.preprocessing import StandardScaler
@@ -35,7 +37,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 array = [0,0,0,0,0]
-dataset = pd.read_csv('D:\VS code\YOGI\yoga.csv')
+dataset = pd.read_csv(r"E:\all_proj\HTML Programming\YOGI\yoga.csv")
 dataset1=dataset.fillna(0)
 
 
@@ -87,13 +89,23 @@ def detectPose(image, pose, display=True):
 
 # app = Flask(__name__)
 app = Flask(__name__)
+
 camera_video = cv2.VideoCapture(0)
 cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
 pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,model_complexity=1)
 
 def generate_frames(name):
-
-    print(name)
+    body_parts_rln={
+        "tree": ["hamstrings", "calves", "quads", "lowerback", "chest","triceps","biceps"],
+        "warrior": ["abdominals", "lowerback", "forearms", "shoulders", "hamstrings", "calves", "glutes", "chest","traps"],
+        "goddess": ["hamstrings", "quads", "abdominals", "lats", "obliques"],
+        "child":["lowerback","traps","glutes","shoulders","triceps","biceps"]
+    }
+    pose="tree"
+    for exercise in body_parts_rln:
+        if name in body_parts_rln[exercise]:
+            pose = exercise
+            break
     while True:
             
         # read the camera frame
@@ -121,16 +133,19 @@ def generate_frames(name):
         
         cv2.putText(frame, "Accuracy", (10, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
         
-        # Warrior
-        # cv2.putText(frame, str(int(a[0][2]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
-        
-        # Tree
-        # cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        #Warrior
+        if pose=="warrior":
+            cv2.putText(frame, str(int(a[0][2] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            
+        #Tree
+        if pose=="tree":
+            cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
         
         # Goddess
-        if name == "shoulders":
+        if pose == "goddess":
             cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            cv2.putText(frame, str(int(a[0][0]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+            cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            
         # if (int(a[0][0]*100) > 95):
         #     pygame.mixer.init()
         #     sound = pygame.mixer.music.load('voice3.mp3')
@@ -256,8 +271,6 @@ def user():
 
 @app.route('/shoulder/<name>')
 def shoulders(name):
-    # with open(name) as f:
-    #     file_contents = f.read()
     return render_template('shoulders.html',name=name)
      
 @app.route('/video')
@@ -265,6 +278,16 @@ def video():
     name = request.args.get('param')
     return Response(generate_frames(name), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+
+# @app.route('/webhook',methods=["GET","POST"])
+# def webhook():
+#     data=[
+#         {
+#         "message":"Flask is written in Python"
+#         },
+#     ]
+#     json_string=json.dumps(data)
+#     return json_string
 
 # @app.route('/static/text/<path:filename>')
 # def file(filename):
