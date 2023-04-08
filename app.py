@@ -96,10 +96,10 @@ pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,
 
 def generate_frames(name):
     body_parts_rln={
-        "tree": ["hamstrings", "calves", "quads","chest","triceps","biceps"],
-        "warrior": ["abdominals", "forearms", "shoulders", "hamstrings", "calves", "glutes", "chest","traps"],
-        "goddess": ["hamstrings", "quads", "abdominals", "lats", "obliques"],
-        "child":["lowerback","traps","glutes","shoulders","triceps","biceps"]
+        "tree": ["hamstrings"],
+        "warrior": ["shoulders"],
+        "goddess": ["abdominals"],
+        "child":["lowerback"]
     }
     pose="tree"
     for exercise in body_parts_rln:
@@ -260,7 +260,7 @@ def body():
     return render_template('bodymap.html')
 
 @app.route('/popup')
-def poopup():
+def popup():
     return render_template('popup.html')
     
 @app.route('/about')
