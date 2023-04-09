@@ -1,6 +1,7 @@
  
 from itertools import tee
 from flask import Flask, render_template, Response, request, redirect, url_for, session, flash
+from flask import Markup
 # from flask_ngrok import run_with_ngrok
 import cv2
 import math
@@ -96,12 +97,12 @@ pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,
 
 def generate_frames(name):
     body_parts_rln={
-        "tree": ["hamstrings", "calves", "quads", "lowerback", "chest","triceps","biceps"],
-        "warrior": ["abdominals", "lowerback", "forearms", "shoulders", "hamstrings", "calves", "glutes", "chest","traps"],
-        "goddess": ["hamstrings", "quads", "abdominals", "lats", "obliques"],
-        "child":["lowerback","traps","glutes","shoulders","triceps","biceps"]
+        "tree": ["calves", "triceps", "biceps","shoulders"],
+        "warrior": ["forearms", "glutes", "chest"],
+        "goddess": ["hamstrings", "quads", "lats", "obliques"],
+        "child":["lowerback","traps","abdominals"]
     }
-    pose="tree"
+    pose="child"
     for exercise in body_parts_rln:
         if name in body_parts_rln[exercise]:
             pose = exercise
@@ -271,7 +272,19 @@ def user():
 
 @app.route('/shoulder/<name>')
 def shoulders(name):
-    return render_template('shoulders.html',name=name)
+
+    if name in ["calves", "triceps", "biceps","shoulders"]:
+        exercise = "tree"
+    elif name in ["forearms", "glutes", "chest", "traps"]:
+        exercise = "warrior"
+    elif name in ["hamstrings", "quads", "lats", "obliques"]:
+        exercise = "goddess"  
+    else:
+        exercise = "child"
+        
+    with open(r"E:\all_proj\HTML Programming\YOGI\static\text\%s.txt " %exercise) as file:
+        html = Markup(file.read())
+    return render_template('shoulders.html',name=name,exercise=exercise,text=html)
      
 @app.route('/video')
 def video():
