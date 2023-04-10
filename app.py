@@ -5,7 +5,7 @@ from flask import Markup
 # from flask_ngrok import run_with_ngrok
 import cv2
 import math
-import cv2
+
 import numpy as np
 from time import time
 import speech_recognition
@@ -38,7 +38,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_pose = mp.solutions.pose
 
 array = [0,0,0,0,0]
-dataset = pd.read_csv(r"E:\all_proj\HTML Programming\YOGI\yoga.csv")
+dataset = pd.read_csv(r"./yoga.csv")
 dataset1=dataset.fillna(0)
 
 
@@ -135,16 +135,22 @@ def generate_frames(name):
         cv2.putText(frame, "Accuracy", (10, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
         
         #Warrior
-        if pose=="warrior":
+        if pose=="tree":
+            cv2.putText(frame, "tree", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][2] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             
         #Tree
-        if pose=="tree":
-            cv2.putText(frame, str(int(a[0][1]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+        if pose=="warrior":
+            cv2.putText(frame, "warrior", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            cv2.putText(frame, str(int(a[0][3]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
         
         # Goddess
         if pose == "goddess":
             cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            cv2.putText(frame, str(int(a[0][1] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            
+        if pose == "child":
+            cv2.putText(frame, "child", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             
         # if (int(a[0][0]*100) > 95):
@@ -255,7 +261,7 @@ def body():
     return render_template('bodymap.html')
 
 @app.route('/popup')
-def poopup():
+def popup():
     return render_template('popup.html')
     
 @app.route('/about')
