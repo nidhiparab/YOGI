@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   /* background-color: #5b79fe; */
-  background-color: #8b694d; 
+  /* background-color: #8b694d;  */
 }
 
 #wiki-body {
@@ -63,10 +63,6 @@
   }
 }
 
-
-.yvideo {
-  position: relative;
-}
 
 .bb {
 
