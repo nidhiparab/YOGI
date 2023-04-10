@@ -1,0 +1,9 @@
+<ol class="steps-list" style="margin: 4rem 0 1rem">
+    <li>
+        Sit on a bench with back support. Raise the dumbbells to shoulder height with your palms forward.
+    </li>
+    <li>
+        Raise the dumbbells upwards and pause at the contracted position.
+    </li>
+    <li>Lower the weights back to starting position.</li>
+</ol>

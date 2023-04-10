@@ -1,62 +1,55 @@
-
 <html class="">
-<head>
-<title>Shoulders</title>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <head>
+    <title>Shoulders</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
+    <link rel="stylesheet" href="/static/css/index.css" />
 
-
-
-<link rel="stylesheet" href="/static/css/index.css">
-
-<link rel="stylesheet" href="/static/css/main.css"> 
-
-</head>
-<body class="shoulders_body">
-
-  <div id="outer-body">
-    <div id="wiki-body" class="container_shld">
-    <div class="body">
-    <div id="mw-content-text">
-    <div class="exercise-list-header">
-    <h3 class="h3">
-    <a href="https://en.wikipedia.org/wiki/{{name}}"  style="color: #204099;">{{name}}</a>
-    </h3>
-    </div>
-    <div>
-    <h1 class="h1">
-    <span class="mw-headline">
-    <a>Yoga for {{name}}</a>
-    </span>
-    </h1>
-    </div>
-    <p><strong>Difficulty:</strong> Beginner</p>
-    </div>
-    <div class="exercise-images-grid" >
-      
-     <img src="/static/videos/{{name}}.gif" alt="yoga.gif" style="margin: 4rem 20rem 1rem;" width="500" height="200" />
-      
-     
-    
-    
-    </div>
-    
+    <link rel="stylesheet" href="/static/css/main.css" />
+  </head>
+  <body class="shoulders_body">
+    <div id="outer-body">
+      <div id="wiki-body" class="container_shld">
+        <div class="body">
+          <div id="mw-content-text">
+            <div class="exercise-list-header">
+              <h3 class="h3">
+                <a
+                  href="https://en.wikipedia.org/wiki/{{name}}"
+                  style="color: #204099"
+                  >{{name}}</a
+                >
+              </h3>
+            </div>
+            <div>
+              <h1 class="h1">
+                <span class="mw-headline">
+                  <a>Yoga for {{name}}</a>
+                </span>
+              </h1>
+            </div>
+            <p><strong>Difficulty:</strong> Beginner</p>
+          </div>
+          <div class="exercise-images-grid">
+            <img
+              src="/static/videos/{{exercise}}.gif"
+              alt="yoga.gif"
+              style="margin: 4rem 20rem 1rem"
+              width="500"
+              height="200"
+            />
+          </div>
+        </div>
+        <a>Steps for {{name}}</a><br>
+        {{text}} 
+        <a class="start-practice-button" href="/model/{{name}}"
+          >Start Your Practice</a
+        >
       </div>
-      <a >Steps for {{name}}</a>
-     <ol class="steps-list" style="margin: 4rem 0 1rem;">
-      <li>Sit on a bench with back support. Raise the dumbbells to shoulder height with your palms forward.</li>
-      <li>Raise the dumbbells upwards and pause at the contracted position.</li>
-      <li>Lower the weights back to starting position.</li> 
-    </ol>
-    <a class="start-practice-button" href="/model/{{name}}">Start Your Practice</a>
-    
     </div>
-    </div>
-
-
-</body>
-
+  </body>
 </html>
-
-
