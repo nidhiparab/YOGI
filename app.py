@@ -13,7 +13,7 @@ import mediapipe as mp
 import matplotlib.pyplot as plt
 #pip install nltk
 import nltk
-# import pygame
+import pygame
 #pip install playsound
 # pip install flask-mysqldb
 from flask_mysqldb import MySQL 
@@ -138,25 +138,36 @@ def generate_frames(name):
         if pose=="tree":
             cv2.putText(frame, "tree", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][2] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            if (int(a[0][0]*100) < 10):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
             
         #Tree
         if pose=="warrior":
             cv2.putText(frame, "warrior", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][3]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+            if (int(a[0][0]*100) < 10):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
         
         # Goddess
         if pose == "goddess":
             cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][1] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            if (int(a[0][0]*100) < 10):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
             
         if pose == "child":
             cv2.putText(frame, "child", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            
-        # if (int(a[0][0]*100) > 95):
-        #     pygame.mixer.init()
-        #     sound = pygame.mixer.music.load('voice3.mp3')
-        #     pygame.mixer.music.play(-1)
+            if (int(a[0][0]*100) < 10):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
         
         
         # cv2.imshow('Pose Classification', frame)
