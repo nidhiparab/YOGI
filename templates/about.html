@@ -29,18 +29,10 @@
                         <a href="/" class="nav-link smoothScroll">Home</a>
                     </li>
      
-                    <li class="nav-item">
-                        <a href="/about" class="nav-link smoothScroll">About</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a href="/team" class="nav-link smoothScroll">Our Team</a>
-                    </li>
 
                
-                    <li class="nav-item">
-                        <a href="/popup" class="nav-link smoothScroll">BodyBits</a>
-                    </li>
+                  
                    
                 </ul>
             </div>
@@ -49,9 +41,74 @@
   <!-- navbar ends -->
   
   
-  <br><br>
-    <h1>
-    This is About page.
-    </h1>
+  <div class="wrapper">
+
+    <div class="about-container">
+        
+        <div class="image-container">
+            <img class="about_img" src="https://img.freepik.com/premium-vector/woman-doing-workout-home-yoga-fitness-healthy-lifestyle-illustration_222438-32.jpg?w=2000" alt="">
+    
+        </div>
+
+        <div class="text-container">
+            <h1>About us</h1>
+            <p>Welcome to Yogi, your personal AI yoga instructor! We're a team of passionate developers and yoga practitioners who believe that technology can help make yoga more accessible and personalized for everyone.
+
+                With Yogi, you can enjoy a customized yoga practice tailored to your unique needs and goals. Our AI-powered platform analyzes your body's movements and provides real-time feedback and guidance to help you improve your form and get the most out of each pose.At Yogi, we believe that technology and wellness can go hand in hand. We're passionate about using the latest advances in AI and machine learning to help you achieve your health and fitness goals, and we're constantly exploring new ways to make yoga more accessible and enjoyable for everyone.
+
+                Thank you for choosing Yogi as your personal yoga instructor. We look forward to helping you achieve your yoga and wellness goals!</p>
+            <a class="about_links" href="/SignUp">Practice Now</a>
+        </div>
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="footer-cont">
+          <h3>YOGI-The Ai Instructor</h3>
+          <p>
+        
+          </p>
+          <ul class="socials">
+            <li>
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-youtube"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-linkedin-square"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p><span></span></p>
+        </div>
+      </footer>
+      
+      
+      
+      <!-- script file for navbar color changes -->
+
+    <script>
+        const nav = document.querySelector("nav");
+  
+        window.addEventListener("scroll", () => {
+          if (window.scrollY >= 50) {
+            nav.classList.add("active_nav");
+          } else {
+            nav.classList.remove("active_nav");
+          }
+        });
+      </script>
 </body>
 </html>

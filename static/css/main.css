@@ -258,7 +258,7 @@ h3 .mw-headline {
   top: 0;
   right: -12%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #0d7707;
   color: #fff;
   border: none;
   border-radius: 0 5px 5px 0;
@@ -271,7 +271,7 @@ h3 .mw-headline {
 .close-button {
   position: absolute;
   top: 0;
-  right: -8%;
+  right: -12%;
   padding: 10px;
   background-color: #dc3545;
   color: #fff;
@@ -300,6 +300,7 @@ h3 .mw-headline {
   display: block;
 }
 
+/* ---buttons --- */
 .start-practice-button {
   display: inline-block;
   background-color: #007bff;
@@ -308,10 +309,82 @@ h3 .mw-headline {
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
+  border: none;
 }
 
 .start-practice-button:hover {
   background-color: #0062cc;
+}
+
+/* -----------------about us --------------- */
+
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.about-container {
+
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 1000px; 
+  margin: 0 auto;
+}
+
+.image-container {
+  float: left; 
+  width: 400px; 
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.about_img{
+  margin-top: 80px;
+  width: 100%;
+  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 500px;
+}
+
+.text-container {
+text-align: justify;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.about_links {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+about_links:hover {
+  background-color: #444;
 }
 
 /* ------------------Footer--------------- */
