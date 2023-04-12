@@ -1,128 +1,143 @@
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="/static/css/main.css" />
-        <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon">
-        <title>User Account</title>
-    </head>
-<body>
-    <div  class="hero d-flex flex-column justify-content-center align-items-center">
-        <video autoplay loop muted plays-inline class="back-video">
-        <source src="/static/videos/video_yoga.mp4" type="video/mp4">
-        </video>
-        
-       <!-- nav bar starts -->
-    <nav  class="navbar navbar-expand-lg fixed-top bgcolor ">
-        <div class="container ">
-            <a href="/" class="navbar-brand"><img src="/static/images/tabicon.png" alt="yogi"></a>  
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-lg-auto">
-                    <li class="nav-item">
-                        <a href="/user" class="nav-link smoothScroll">Home</a>
-                    </li>
-     
-                    <li class="nav-item">
-                        <a href="/about" class="nav-link smoothScroll">About</a>
-                    </li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="icon" href="/static/images/tabicon.png" type="image/x-icon" />
+    <title>User Account</title>
+  </head>
+  <body>
+    <div
+      class="hero d-flex flex-column justify-content-center align-items-center"
+    >
+      <video autoplay loop muted plays-inline class="back-video">
+        <source src="/static/videos/video_yoga.mp4" type="video/mp4" />
+      </video>
 
-                    <li class="nav-item">
-                        <a href="/team" class="nav-link smoothScroll">Our Team</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a href="/body" class="nav-link smoothScroll">BodyBits</a>
-                    </li>
-                </ul>
-				
-				<div class="navbar-text ml-auto">
-					<div class="row align-items-center">
-						<div class="col-sm-6">
-			       <strong>{{session.name}}</strong>
-						</div>
-						<div class="col-sm-6 text-right">
-							<a href="{{ url_for('logout') }}"> Logout</a>
-						</div>
-					</div>
-				</div>
-				
+      <!-- nav bar starts -->
+      <nav class="navbar navbar-expand-lg fixed-top bgcolor">
+        <div class="container">
+          <a href="/" class="navbar-brand"
+            ><img src="/static/images/tabicon.png" alt="yogi"
+          /></a>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-lg-auto">
+              <li class="nav-item">
+                <a href="/user" class="nav-link smoothScroll">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/about" class="nav-link smoothScroll">About</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/team" class="nav-link smoothScroll">Our Team</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="/body" class="nav-link smoothScroll">BodyBits</a>
+              </li>
+            </ul>
+
+            <div class="navbar-text ml-auto">
+              <div class="row align-items-center">
+                <div class="col-sm-6">
+                  <strong>{{session.name}}</strong>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <a href="{{ url_for('logout') }}"> Logout</a>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </nav>
-  <!-- navbar ends -->
-        
-        
-        
+      </nav>
+      <!-- navbar ends -->
+      <!------------- Chatbot --------------->
+      <script type="text/javascript">
+        (function (d, m) {
+          var kommunicateSettings = {
+            appId: "35d17e8f169a7ad1594bc112aa3f7e5de",
+            popupWidget: true,
+            automaticChatOpenOnNavigation: true,
+          };
+          var s = document.createElement("script");
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+          var h = document.getElementsByTagName("head")[0];
+          h.appendChild(s);
+          window.kommunicate = m;
+          m._globals = kommunicateSettings;
+        })(document, window.kommunicate || {});
+        /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+      </script>
+      <!-- Chatbot Ends -->
+
       <div class="content">
-      <h1>YOGI </h1>
-      <a href="/about">Explore</a>
-      
-      
+        <h1>YOGI</h1>
+        <a href="/about">Explore</a>
       </div>
-      
-</div>
-	
-<div class="row">
-	    
-	<h2>Welcome </h2> 
-</div>		
+    </div>
 
+    <div class="row">
+      <h2>Welcome</h2>
+    </div>
 
+    <script>
+      const nav = document.querySelector("nav");
 
-
-
-
-
-
-
-
-<script>
-    const nav = document.querySelector('nav');
-
-    window.addEventListener('scroll', () => {
+      window.addEventListener("scroll", () => {
         if (window.scrollY >= 50) {
-            nav.classList.add('active_nav');
+          nav.classList.add("active_nav");
         } else {
-            nav.classList.remove('active_nav');
+          nav.classList.remove("active_nav");
         }
-    })
-</script>
+      });
+    </script>
 
+    <!-- Footer -->
 
-   <!-- Footer -->
-
-   <footer>
-    <div class="footer-cont">
-      <h3>YOGI-The Ai Instructor</h3>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur ad3ipisicing elit. Illo iste
-        corrupti doloribus odio sed!
-      </p>
-      <ul class="socials">
-        <li>
-          <a href="#"><i class="fa fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-google-plus"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-youtube"></i></a>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-linkedin-square"></i></a>
-        </li>
-      </ul>
-    </div>
-    <div class="footer-bottom">
-      <p><span></span></p>
-    </div>
-  </footer>
-</body>
+    <footer>
+      <div class="footer-cont">
+        <h3>YOGI-The Ai Instructor</h3>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur ad3ipisicing elit. Illo iste
+          corrupti doloribus odio sed!
+        </p>
+        <ul class="socials">
+          <li>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-google-plus"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-linkedin-square"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p><span></span></p>
+      </div>
+    </footer>
+  </body>
 </html>
-
