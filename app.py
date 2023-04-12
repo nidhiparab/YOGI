@@ -177,9 +177,6 @@ def generate_frames(name):
         frame=buffer.tobytes()
 
         
-
-
-
         yield(b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
@@ -312,7 +309,7 @@ def shoulders(name):
     else:
         exercise = "child"
         
-    with open(r"D:\VS code\YOGI\static\text\%s.txt" % exercise) as file:
+    with open(r"C:\Nidhi\vscode\Yogi\static\text\%s.txt" % exercise) as file:
         html = Markup(file.read())
         
     return render_template('shoulders.html', name=name, exercise=exercise, text=html)
@@ -327,6 +324,10 @@ def video():
     name = request.args.get('param')
     return Response(generate_frames(name), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/stop_capture', methods=['POST'])
+def stop_capture():
+    camera_video.release()
+    return render_template('bodymap.html')
 
 # @app.route('/webhook',methods=["GET","POST"])
 # def webhook():

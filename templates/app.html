@@ -127,6 +127,9 @@
         <center>
           <h1>Start Your Practice Now!</h1>
           <img src="/video?param={{name}}" width="100%" />
+          <form method="POST" action="{{ url_for('stop_capture') }}">
+            <button type="submit">Try Another Yoga</button>
+        </form>
         </center>
       </div>
     </section>
