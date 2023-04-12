@@ -13,7 +13,7 @@ import mediapipe as mp
 import matplotlib.pyplot as plt
 #pip install nltk
 import nltk
-# import pygame
+import pygame
 #pip install playsound
 # pip install flask-mysqldb
 from flask_mysqldb import MySQL 
@@ -96,11 +96,14 @@ cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
 pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,model_complexity=1)
 
 def generate_frames(name):
+    # user_input = request.args.get('key', '')
     body_parts_rln={
-        "tree": ["calves", "triceps", "biceps","shoulders"],
-        "warrior": ["forearms", "glutes", "chest"],
-        "goddess": ["hamstrings", "quads", "lats", "obliques"],
-        "child":["lowerback","traps","abdominals"]
+    
+        "tree": ["calves","shoulders", "hamstrings" ],
+        "warrior": ["glutes", "chest", "triceps", "biceps"],
+        "goddess": [ "quads", "lats", "obliques", "traps"],
+        "child":["lowerback","forearms","abdominals"]
+    
     }
     pose="child"
     for exercise in body_parts_rln:
@@ -138,35 +141,45 @@ def generate_frames(name):
         if pose=="tree":
             cv2.putText(frame, "tree", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][2] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            if (int(a[0][2]*100) > 60 ):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
             
         #Tree
         if pose=="warrior":
             cv2.putText(frame, "warrior", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][3]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
+            if (int(a[0][3]*100) > 60 ):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
         
         # Goddess
         if pose == "goddess":
             cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][1] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
+            if (int(a[0][1]*100) > 60):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
             
         if pose == "child":
             cv2.putText(frame, "child", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            
-        # if (int(a[0][0]*100) > 95):
-        #     pygame.mixer.init()
-        #     sound = pygame.mixer.music.load('voice3.mp3')
-        #     pygame.mixer.music.play(-1)
+            if (int(a[0][0]*100) > 60):
+                pygame.mixer.init()
+                pygame.mixer.music.load('voice3.mp3')
+                pygame.mixer.music.play(-1)
         
+        # if user_input == 'q':
+        #         pygame.mixer.music.set_volume(0.0)
         
         # cv2.imshow('Pose Classification', frame)
         ret,buffer=cv2.imencode('.jpg',frame)
         frame=buffer.tobytes()
 
         
-
-
-
         yield(b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
@@ -276,27 +289,48 @@ def team():
 def user():
     return render_template('user.html')
 
+
 @app.route('/shoulder/<name>')
 def shoulders(name):
-
-    if name in ["calves", "triceps", "biceps","shoulders"]:
-        exercise = "tree"
-    elif name in ["forearms", "glutes", "chest", "traps"]:
-        exercise = "warrior"
-    elif name in ["hamstrings", "quads", "lats", "obliques"]:
-        exercise = "goddess"  
+    poses = {
+        "calves": ["tree"],
+        "triceps": ["warrior"],
+        "biceps": ["warrior"],
+        "shoulders": ["tree"],
+        "forearms": ["child"],
+        "glutes": ["warrior"],
+        "chest": ["warrior"],
+        "traps": ["goddess"],
+        "hamstrings": ["tree"],
+        "quads": ["goddess"],
+        "lats": ["goddess"],
+        "obliques": ["goddess"]
+    }
+    
+    if name in poses:
+        exercise = poses[name][0]
     else:
         exercise = "child"
         
-    with open(r"E:\all_proj\HTML Programming\YOGI\static\text\%s.txt " %exercise) as file:
+    with open(r"./static/text/%s.txt" % exercise) as file:
         html = Markup(file.read())
-    return render_template('shoulders.html',name=name,exercise=exercise,text=html)
+        
+    return render_template('shoulders.html', name=name, exercise=exercise, text=html)
+
+        
+    # with open(r"C:\Nidhi\vscode\Yogi\static\text\%s.txt " %exercise) as file:
+    #     html = Markup(file.read())
+    # return render_template('shoulders.html',name=name,exercise=exercise,text=html)
      
 @app.route('/video')
 def video():
     name = request.args.get('param')
     return Response(generate_frames(name), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/stop_capture', methods=['POST'])
+def stop_capture():
+    camera_video.release()
+    return render_template('bodymap.html')
 
 # @app.route('/webhook',methods=["GET","POST"])
 # def webhook():
