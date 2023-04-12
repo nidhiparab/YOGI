@@ -309,7 +309,7 @@ def shoulders(name):
     else:
         exercise = "child"
         
-    with open(r"C:\Nidhi\vscode\Yogi\static\text\%s.txt" % exercise) as file:
+    with open(r"D:\VS code\YOGI\static\text\%s.txt" % exercise) as file:
         html = Markup(file.read())
         
     return render_template('shoulders.html', name=name, exercise=exercise, text=html)
