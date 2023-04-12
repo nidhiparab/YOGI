@@ -97,10 +97,12 @@ pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5,
 
 def generate_frames(name):
     body_parts_rln={
-        "tree": ["calves", "triceps", "biceps","shoulders"],
-        "warrior": ["forearms", "glutes", "chest"],
-        "goddess": ["hamstrings", "quads", "lats", "obliques"],
-        "child":["lowerback","traps","abdominals"]
+      
+        "tree": ["calves","shoulders", "hamstrings" ],
+        "warrior": ["glutes", "chest", "triceps", "biceps"],
+        "goddess": [ "quads", "lats", "obliques", "traps"],
+        "child":["lowerback","forearms","abdominals"]
+    
     }
     pose="child"
     for exercise in body_parts_rln:
@@ -287,19 +289,33 @@ def team():
 def user():
     return render_template('user.html')
 
+
 @app.route('/shoulder/<name>')
 def shoulders(name):
-
-    if name in ["calves", "triceps", "biceps","shoulders"]:
-        exercise = "tree"
-    elif name in ["forearms", "glutes", "chest", "traps"]:
-        exercise = "warrior"
-    elif name in ["hamstrings", "quads", "lats", "obliques"]:
-        exercise = "goddess"  
+    poses = {
+        "calves": ["tree"],
+        "triceps": ["warrior"],
+        "biceps": ["warrior"],
+        "shoulders": ["tree"],
+        "forearms": ["child"],
+        "glutes": ["warrior"],
+        "chest": ["warrior"],
+        "traps": ["goddess"],
+        "hamstrings": ["tree"],
+        "quads": ["goddess"],
+        "lats": ["goddess"],
+        "obliques": ["goddess"]
+    }
+    
+    if name in poses:
+        exercise = poses[name][0]
     else:
         exercise = "child"
         
+    with open(r"D:\VS code\YOGI\static\text\%s.txt" % exercise) as file:
+        html = Markup(file.read())
         
+    return render_template('shoulders.html', name=name, exercise=exercise, text=html)
 
         
     with open(r"C:\Nidhi\vscode\Yogi\static\text\%s.txt " %exercise) as file:
