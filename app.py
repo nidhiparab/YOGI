@@ -138,7 +138,7 @@ def generate_frames(name):
         if pose=="tree":
             cv2.putText(frame, "tree", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][2] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            if (int(a[0][0]*100) < 10):
+            if (int(a[0][2]*100) > 60):
                 pygame.mixer.init()
                 pygame.mixer.music.load('voice3.mp3')
                 pygame.mixer.music.play(-1)
@@ -147,7 +147,7 @@ def generate_frames(name):
         if pose=="warrior":
             cv2.putText(frame, "warrior", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][3]*100)), (200, 100),cv2.FONT_HERSHEY_PLAIN, 2, color, 2) 
-            if (int(a[0][0]*100) < 10):
+            if (int(a[0][3]*100) > 60):
                 pygame.mixer.init()
                 pygame.mixer.music.load('voice3.mp3')
                 pygame.mixer.music.play(-1)
@@ -156,7 +156,7 @@ def generate_frames(name):
         if pose == "goddess":
             cv2.putText(frame, "Goddess", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][1] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            if (int(a[0][0]*100) < 10):
+            if (int(a[0][1]*100) > 60):
                 pygame.mixer.init()
                 pygame.mixer.music.load('voice3.mp3')
                 pygame.mixer.music.play(-1)
@@ -164,7 +164,7 @@ def generate_frames(name):
         if pose == "child":
             cv2.putText(frame, "child", (10, 30),cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
             cv2.putText(frame, str(int(a[0][0] * 100)), (200, 100), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
-            if (int(a[0][0]*100) < 10):
+            if (int(a[0][0]*100) > 60):
                 pygame.mixer.init()
                 pygame.mixer.music.load('voice3.mp3')
                 pygame.mixer.music.play(-1)
@@ -302,7 +302,7 @@ def shoulders(name):
         
 
         
-    with open(r"D:\VS code\YOGI\static\text\%s.txt " %exercise) as file:
+    with open(r"C:\Nidhi\vscode\Yogi\static\text\%s.txt " %exercise) as file:
         html = Markup(file.read())
     return render_template('shoulders.html',name=name,exercise=exercise,text=html)
      
